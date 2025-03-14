@@ -41,6 +41,12 @@ app.get('/new-task', (req, res) => {
 });
 
 app.post('/new-task', (req, res)=>{
-  const newTask = req.body
-  console.log(newTask)
+  console.log(req.body)
+  const task = new Task (req.body)
+  task.save()
+  .then(()=>{
+    console.log('New task recorded')
+    res.redirect('/')
+  })
+  .catch((err)=>console.error(err))
 })
