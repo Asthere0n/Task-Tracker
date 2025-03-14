@@ -5,40 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Task | Task Tracker</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="new-task.css">
 </head>
 <body>
     <div id="layout">
         <%- include('./partials/header.ejs') %>
         <div id="content">
-            <form action="/new-post" method="post" id="new-task-form">
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title" required>
+            <form action="/new-task" method="post" id="new-task-form">
+                <div class="formBox" id="taskTitle">
+                    <label for="titleBox">Title</label>
+                    <input type="text" name="title" id="taskTitleBox" required>
+                </div>
     
-                <label for="category">Category</label>
-                <input type="radio" name="category" id="Bar" value="Bar" required>
-                <label for="Bar">Bar</label>
-                <input type="radio" name="category" id="Floor" value="Floor" required>
-                <label for="Floor">Floor</label>
-                <input type="radio" name="category" id="Admin" value="Admin" required>
-                <label for="Admin">Admin</label>
+                
+                <div  class="halfBox">
+                    <div class="formBox" id="category">
+                        <label for="categorySelector">Category</label>
+                        <div class="innerBox">
+                            <div class="radioSelector">
+                                <input type="radio" name="category" id="Bar" value="Bar" required>
+                                <label for="Bar">Bar</label>
+                            </div>
+                            <div class="radioSelector">
+                                <input type="radio" name="category" id="Floor" value="Floor" required>
+                                <label for="Floor">Floor</label>
+                            </div>
+                            <div class="radioSelector">
+                                <input type="radio" name="category" id="Admin" value="Admin" required>
+                                <label for="Admin">Admin</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formBox" id="dueTime">
+                        <label for="dueTimeInput">Due Time</label>
+                        <div class="innerBox">
+                            <input type="time" name="dueTime" id="dueTimeInput" required>
+                            <input type="date" name="dueDate" id="dueDateInput" required>
+                        </div>
+                    </div>
+                </div>
+
     
-                <label for="dueTime">Due Time</label>
-                <input type="time" name="dueTime" id="dueTime" required>
     
-                <label for="description">Description</label>
-                <textarea name="description" id="description" required></textarea>
+                <div class="formBox" id="description">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="descriptionBox" required></textarea>
+                </div>
     
-                <label for="frequency">Frequency</label>
-                <input type="radio" name="frequency" id="Once" value="Once" required>
-                <label for="Once">Once</label>
-                <input type="radio" name="frequency" id="Daily" value="Daily" required>
-                <label for="Daily">Daily</label>
-                <input type="radio" name="frequency" id="Weekly" value="Weekly" required>
-                <label for="Weekly">Weekly</label>
-                <input type="radio" name="frequency" id="Monthly" value="Monthly" required>
-                <label for="Monthly">Monthly</label>
+                <div class="formBox" id="frequency">
+                    <label for="frequencySelector">Frequency</label>
+                    <div class="innerBox">
+                        <div class="radioSelector">
+                            <input type="radio" name="frequency" id="Once" value="Once" required>
+                            <label for="Once">Once</label>
+                        </div>
+                        <div class="radioSelector">
+                            <input type="radio" name="frequency" id="Daily" value="Daily" required>
+                            <label for="Daily">Daily</label>
+                        </div>
+                        <div class="radioSelector">
+                            <input type="radio" name="frequency" id="Weekly" value="Weekly" required>
+                            <label for="Weekly">Weekly</label>
+                        </div>
+                        <div class="radioSelector">
+                            <input type="radio" name="frequency" id="Monthly" value="Monthly" required>
+                            <label for="Monthly">Monthly</label>
+                        </div>
+
+                    </div>
+                </div>
     
-                <button type="submit">Create Task</button>
+                <button type="submit" id="submitTaskButton">Create Task</button>
             </form>
         </div>
         <%- include('./partials/footer.ejs') %>

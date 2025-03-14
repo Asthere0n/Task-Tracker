@@ -1,0 +1,83 @@
+#new-task-form{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formBox{
+    margin-block: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    border: #333 2px solid;
+    border-radius: 10px;
+    padding: 20px;
+    flex-wrap: wrap;
+    font-size: larger;
+}
+.halfBox{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.innerBox{
+    margin-top: 10px;
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+}
+.radioSelector{
+    display: flex;
+    align-items: center;
+    input{
+        margin: 10px;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* TASK TITLE */
+#taskTitleBox{
+    margin-inline: 20px;
+    flex-grow: 1;
+    height: 40px;
+    padding-inline: 10px;
+    font-size: larger;
+}
+
+/* TASK CATEGORY */
+
+/* DUE TIME & DATE */
+
+/* TASK DESCRIPTION */
+#description{
+    flex-direction: column;
+}
+#descriptionBox{
+    width: 90%;
+    min-height: 150px;
+    border: 0px;
+    font-size: medium;
+}
+
+/* TASK FREQUENCY */
+
+/* SUBMIT BUTTON */
+#submitTaskButton{
+    height: 60px;
+    border: #333 2px solid;
+    background-color: #444;
+    border-radius: 10px;
+    font-size: large;
+    cursor: pointer;
+    color: white;
+}
+#submitTaskButton:hover{
+    background-color: #666;
+}
+#submitTaskButton:active{
+    background-color: black;
+}

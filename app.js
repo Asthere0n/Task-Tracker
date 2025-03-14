@@ -7,6 +7,7 @@ const app = express();
 
 // middleware
 app.use(express.static('public'));
+app.use(express.urlencoded())
 
 // view engine
 app.set('view engine', 'ejs');
@@ -39,3 +40,7 @@ app.get('/new-task', (req, res) => {
   res.render('new-task');
 });
 
+app.post('/new-task', (req, res)=>{
+  const newTask = req.body
+  console.log(newTask)
+})
