@@ -10,14 +10,22 @@
     <div id="layout">
 
         <%- include('./partials/header.ejs') %>
-        <section id="task-list">
-            <section>
-                <h2>Pending Task</h2>
+        <div id="content">
+            <section id="task-list">
+                <section class="task-list" id="task-list-pending">
+                    <h2>Pending Task</h2>
+                    <% if (tasks.length >= 0) { %>
+                        <p>No pending task</p>
+                        
+                    } else { %>
+                        <p>No pending task</p>
+                    <% } %>
+                </section>
+                <section class="task-list" id="task-list-completed">
+                    <h2>Completed Task</h2>
+                </section>
             </section>
-            <section>
-                <h2>Completed Task</h2>
-            </section>
-        </section>
+        </div>
         <%- include('./partials/footer.ejs') %>
     </div>
 </body>

@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import 'dotenv/config';
+import Task from "./models/taskModel.js"
 
 const app = express();
 
@@ -14,21 +15,27 @@ app.set('view engine', 'ejs');
 const dbURI = process.env.MONGODB_URI;
 
 mongoose.connect(dbURI, {})
-.then(() => {
+  .then(() => {
     console.log('Connected to MongoDB')
     app.listen(3000);
-})
-.then(() => {
-  console.log('Server is running on http://localhost:3000')
-})
-.catch(err => console.error('Connection error:', err));
+  })
+  .then(() => {
+    console.log('Server is running on http://localhost:3000')
+  })
+  .catch(err => console.error('Connection error:', err));
 
 // routes
 app.get('/', (req, res) => {
-    res.render('index');
+  Task.find()
+    .then(result => {
+      res.render('index', { tasks: result });
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
 
 app.get('/new-task', (req, res) => {
-    res.render('new-task');
+  res.render('new-task');
 });
 
