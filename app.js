@@ -13,7 +13,6 @@ app.set('view engine', 'ejs');
 //database connection
 const dbURI = process.env.MONGODB_URI;
 
-
 mongoose.connect(dbURI, {})
 .then(() => {
     console.log('Connected to MongoDB')
@@ -23,4 +22,13 @@ mongoose.connect(dbURI, {})
   console.log('Server is running on http://localhost:3000')
 })
 .catch(err => console.error('Connection error:', err));
+
+// routes
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+app.get('/new-task', (req, res) => {
+    res.render('new-task');
+});
 

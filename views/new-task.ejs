@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Task | Task Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="layout">
+        <%- include('./partials/header.ejs') %>
+        <form action="/new-post" method="post" id="new-task-form">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" required>
+
+            <label for="category">Category</label>
+            <input type="radio" name="category" id="Bar" value="Bar" required>
+            <label for="Bar">Bar</label>
+            <input type="radio" name="category" id="Floor" value="Floor" required>
+            <label for="Floor">Floor</label>
+            <input type="radio" name="category" id="Admin" value="Admin" required>
+            <label for="Admin">Admin</label>
+
+            <label for="dueDate">Due Time</label>
+            <input type="time" name="dueTime" id="dueTime" required>
+
+            <label for="description">Description</label>
+            <textarea name="description" id="description" required></textarea>
+
+            <label for="frequency">Frequency</label>
+            <input type="radio" name="frequency" id="Once" value="Once" required>
+            <label for="Once">Once</label>
+            <input type="radio" name="frequency" id="Daily" value="Daily" required>
+            <label for="Daily">Daily</label>
+            <input type="radio" name="frequency" id="Weekly" value="Weekly" required>
+            <label for="Weekly">Weekly</label>
+            <input type="radio" name="frequency" id="Monthly" value="Monthly" required>
+            <label for="Monthly">Monthly</label>
+
+            <button type="submit">Create Task</button>
+        </form>
+        <%- include('./partials/footer.ejs') %>
+    </div>
+</body>
+</html>
