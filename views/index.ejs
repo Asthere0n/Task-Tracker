@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Task Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="layout">
 
         <%- include('./partials/header.ejs') %>
-        <div id="content">
-            <section id="task-list">
+            <div id="content">
+
                 <section class="task-list" id="task-list-pending">
-                    <h2>Pending Task</h2>
-                    <% if (tasks.length >= 0) { %>
-                        <p>No pending task</p>
-                        
-                    } else { %>
-                        <p>No pending task</p>
-                    <% } %>
+                    <h2 class="sectionTitle">Pending Task</h2>
+                    <% let completedTask=[]; if (tasks.length> 0) { %>
+                    <% tasks.forEach(task=> {%>
+                        <%- include('./partials/taskTemplate.ejs', {task: task}) %>
+                            <%}); %>
+                        <% } else { %>
+                            <p>No pending task</p>
+                        <% } %>
                 </section>
                 <section class="task-list" id="task-list-completed">
-                    <h2>Completed Task</h2>
+                    <h2 class="sectionTitle">Completed Task</h2>
+                    <% if (completedTask.length> 0){ %>
+
+                        <% } else {%>
+                            <p>No pending task</p>
+                        <% } %>
                 </section>
-            </section>
-        </div>
-        <%- include('./partials/footer.ejs') %>
+
+            </div>
+            <%- include('./partials/footer.ejs') %>
     </div>
 </body>
+
 </html>

@@ -61,10 +61,12 @@ header {
         font-size: 20px;
         justify-content: center;
         align-items: center;
+        transition: all 0.3s;
     }
     a:hover{
         background-color: #333;
         color: #fff;
+        scale: 1.1;
     }
     a:active{
         background-color: black;
