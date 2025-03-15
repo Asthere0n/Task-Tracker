@@ -1,5 +1,101 @@
-.task-list{
+.content-box{
     display: flex;
     flex-direction: column;
-    
+    width: 100%;
+    border: 2px #333 solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    flex-grow: 1;
+}
+.task-grid{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.sectionTitle{
+    width: 100%;
+    padding: 5px;
+    border-bottom: #333 1px solid;
+    margin-bottom: 20px;
+}
+
+/* TASK TEMPLATE */
+.task-template{
+    height: 250px;
+    width: 400px;
+    border: #333 1px solid;
+    border-radius: 5px;
+    display: grid;
+    padding: 10px;
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-areas: 'TITLE TITLE CATEGORY'
+    'DESCRIPTION DESCRIPTION DESCRIPTION'
+    '. . DUE';
+}
+
+.task-title{
+    grid-area: TITLE;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.task-actions{
+    grid-area: ACTIONS;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.task-category{
+    text-align: end;
+    grid-area: CATEGORY;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px #333 solid;
+    border-radius: 8px;
+    padding: 8px;
+    width: 80px;
+}
+
+.task-due{
+    grid-area: DUE;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.task-description{
+    grid-area: DESCRIPTION;
+    padding: 5px;
+    margin-block: 10px;
+    border-radius: 5px;
+    border: #aaa 1px solid;
+}
+
+.task-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: all 0.3s;
+    box-shadow: 2px 2px 2px #aaa;
+    stroke: #333;
+    margin: 5px;
+}
+.task-complete:hover .icon-button path {
+    stroke: green;
+}
+.task-delete:hover .icon-button path {
+    stroke: red;
+}
+.icon-button{
+    padding: 5px;
 }
