@@ -28,8 +28,9 @@
 .task-template{
     height: 250px;
     width: 400px;
-    border: #333 1px solid;
-    border-radius: 5px;
+    border: #333 2px solid;
+    border-radius: 10px;
+    margin-block: 10px;
     display: grid;
     padding: 10px;
     grid-template-rows: 1fr 3fr 1fr;

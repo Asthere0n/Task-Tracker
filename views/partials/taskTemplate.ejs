@@ -1,17 +1,17 @@
-<a href="#">
+<a href="/task/<%= task.id %>">
 <article class="task-template">
     <% let categoryColour = "background-color: "
       switch (task.category) {
         case 'Bar':
-          categoryColour += 'lightblue'  
+          categoryColour += 'lightblue;'  
           break;
 
         case 'Floor':
-          categoryColour += 'limegreen'
+          categoryColour += 'limegreen;'
           break;
 
         case 'Admin':
-          categoryColour += 'pink'
+          categoryColour += 'pink;'
           break;
       
         default:

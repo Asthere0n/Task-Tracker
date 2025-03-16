@@ -40,13 +40,23 @@ app.get('/new-task', (req, res) => {
   res.render('new-task');
 });
 
-app.post('/new-task', (req, res)=>{
+app.post('/new-task', (req, res) => {
   console.log(req.body)
-  const task = new Task (req.body)
+  const task = new Task(req.body)
   task.save()
-  .then(()=>{
-    console.log('New task recorded')
-    res.redirect('/')
-  })
-  .catch((err)=>console.error(err))
+    .then(() => {
+      console.log('New task recorded')
+      res.redirect('/')
+    })
+    .catch((err) => console.error(err))
+})
+
+app.get('/task/:id', (req, res) => {
+  const id = req.params.id
+  Task.findById(id)
+    .then((result) => {
+      res.render('taskViewer', { task: result })
+    })
+    .catch(err => console.error(err))
+
 })
