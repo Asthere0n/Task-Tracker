@@ -12,12 +12,12 @@
     border-radius: 10px;
     background-color: #fff;
     display: grid;
-    grid-template-columns: 120px 120px 1fr 100px;
+    grid-template-columns: 120px 1fr 100px;
     grid-template-rows: 80px 1fr 60px;
     grid-template-areas: 
-    'BACK CATEGORY TITLE DUE'
-    'DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION'
-    'ACTION ACTION ACTION ACTION';
+    'CATEGORY TITLE DUE'
+    'DESCRIPTION DESCRIPTION DESCRIPTION'
+    'ACTION ACTION ACTION';
 }
 
 /* BACK */
@@ -30,9 +30,12 @@
     grid-area: TITLE;
     font-size: xx-large;
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
     padding: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* CATEGORY TAG */
@@ -51,6 +54,7 @@
     grid-area: DESCRIPTION;
     padding: 20px;
     font-size: larger;
+    overflow-y: scroll;
 }
 
 /* DUE */

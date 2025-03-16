@@ -11,12 +11,6 @@
     <div id="layout" class="color<%= task.category %>">
 
         <article class="card">
-            <button class="task-button" id="go-back">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 8H16.5C18.9853 8 21 10.0147 21 12.5C21 14.9853 18.9853 17 16.5 17H3M3 8L6 5M3 8L6 11" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-            </button>
-
             <h1 class="task-title">
                 <%= task.title %>
             </h1>
@@ -29,6 +23,11 @@
                 <p><%= task.dueDate %></p>
             </div>
             <div class="task-actions">
+                <button class="task-button" id="go-back">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 8H16.5C18.9853 8 21 10.0147 21 12.5C21 14.9853 18.9853 17 16.5 17H3M3 8L6 5M3 8L6 11" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                </button>
                 <button id="task-complete" class="task-button"> 
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke-linecap="round" stroke-linejoin="round"/>

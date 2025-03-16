@@ -42,6 +42,9 @@
     grid-template-areas: 'CATEGORY TITLE DUE';
     grid-template-columns: 120px 1fr 80px;
     transition: all 0.5s;
+    overflow: hidden;
+    max-height: 200px;
+    text-overflow: ellipsis;
 }
 .task-template:hover{
     box-shadow: none;
@@ -64,6 +67,7 @@
     border-radius: 8px;
     padding: 8px;
     width: 80px;
+    max-height: 40px;
 }
 
 .task-due{
