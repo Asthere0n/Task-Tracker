@@ -21,7 +21,7 @@
                     <h2 class="sectionTitle">Pending Task</h2>
                     <div class="task-grid">
 
-                        <% let completedTask=[]; if (tasks.length> 0) { %>
+                        <% let completedTask=[]; if (tasks && tasks.length> 0) { %>
                             <% tasks.forEach(task=> {%>
                                 <%- include('./partials/taskTemplate.ejs', {task: task}) %>
                                 <%}); %>

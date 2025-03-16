@@ -1,40 +1,19 @@
+<% const category = task.category; console.log(category)%>
 <a href="/task/<%= task.id %>">
 <article class="task-template">
-    <% let categoryColour = "background-color: "
-      switch (task.category) {
-        case 'Bar':
-          categoryColour += 'lightblue;'  
-          break;
-
-        case 'Floor':
-          categoryColour += 'limegreen;'
-          break;
-
-        case 'Admin':
-          categoryColour += 'pink;'
-          break;
-      
-        default:
-          break;
-      }
-    %>
 
     <!-- TITLE -->
     <h3 class="task-title"><%= task.title %></h3>
     
     <!-- CATEGORY -->
-     <div  style='<%= categoryColour %>' class="task-category">
-       <span><%= task.category %></span>
+    <div class="task-category color<%= category %>">
+      <span><%= task.category %></span>
      </div>
-
-    <!-- DESCRIPTION -->
-    <p class="task-description"><%= task.description %></p>
-
-    <!-- DUE -->
+     
+     <!-- DUE -->
      <div class="task-due">
        <p class="task-dueTime"><%= task.dueTime %></p>
        <p class="task-dueDate"><%= task.dueDate %> </p>
-     </div>
-
+      </div>
   </article>  
 </a>

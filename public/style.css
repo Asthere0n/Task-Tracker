@@ -55,7 +55,7 @@ header {
     a{
         display: flex;
         padding: 10px;
-        width: 120px;
+        width: 80px;
         margin-block: 10px;
         margin-inline: 20px;
         border: #333 solid 2px;
@@ -65,17 +65,19 @@ header {
         justify-content: center;
         align-items: center;
         transition: all 0.3s;
+        box-shadow: 2px 2px 2px #333;
         svg{
             stroke: #333;
             stroke-width: 1.5px;
         }
     }
     a:hover{
-        background-color: #333;
+        box-shadow: none;
+        /*background-color: #333;
         scale: 1.1;
         svg{
             stroke: #fff;
-        }
+        }*/
     }
     a:active{
         background-color: black;
@@ -90,4 +92,51 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.colorBar{
+    background-color: lightblue;
+}
+.colorFloor{
+    background-color: lime;
+}
+.colorAdmin{
+    background-color: pink;
+}
+
+.task-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border: 2px #333 solid;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    transition: all 0.3s;
+    box-shadow: 2px 2px 2px #333;
+    margin-inline: 20px;
+    margin-block: 10px;
+    transition: all 0.5s;
+    svg{
+        stroke: #333;
+        stroke-width: 1.5px;
+        height: 50px;
+        width: 50px;
+    }
+}
+.task-button:hover{
+    box-shadow: none;
+}
+#task-complete:hover {
+    svg{
+        stroke: lime;
+        stroke-width: 2px;
+    }
+}
+#task-delete:hover {
+    svg{
+        stroke: red;
+        stroke-width: 2px;
+    }
 }

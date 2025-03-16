@@ -1,3 +1,75 @@
-body{
-    background-color: red;
+#layout{
+    justify-content: center;
+    align-items: center;
+}
+
+/* CARD */
+.card{
+    width: 80%;
+    height: 80%;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 120px 120px 1fr 100px;
+    grid-template-rows: 80px 1fr 60px;
+    grid-template-areas: 
+    'BACK CATEGORY TITLE DUE'
+    'DESCRIPTION DESCRIPTION DESCRIPTION DESCRIPTION'
+    'ACTION ACTION ACTION ACTION';
+}
+
+/* BACK */
+#task-back{
+    grid-area: BACK;
+}
+
+/* TITLE */
+.task-title{
+    grid-area: TITLE;
+    font-size: xx-large;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+/* CATEGORY TAG */
+.task-category{
+    grid-area: CATEGORY;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid #333;
+    box-shadow: 2px 2px 2px #333;
+}
+
+/* DESCRIPTION */
+.task-description{
+    grid-area: DESCRIPTION;
+    padding: 20px;
+    font-size: larger;
+}
+
+/* DUE */
+.task-due{
+    grid-area: DUE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: #333 2px solid;
+    p{
+        font-size: x-large;
+    }
+}
+
+
+/* ACTIONS */
+.task-actions{
+    grid-area: ACTION;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
