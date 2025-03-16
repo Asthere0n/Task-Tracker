@@ -13,7 +13,19 @@ const Schema = mongoose.Schema({
         type: String,
         required: true
     },
+    dueDate:{
+        type: Array,
+        required: true
+    },
     description: {
+        type: String,
+        required: false
+    },
+    completed: {
+        type:Boolean,
+        required: false
+    },
+    completedBy: {
         type: String,
         required: false
     }

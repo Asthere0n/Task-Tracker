@@ -16,7 +16,11 @@
     justify-content: flex-start;
     gap: 10px;
 }
-
+.task-box-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .sectionTitle{
     width: 100%;
@@ -36,6 +40,7 @@
     padding: 20px;
     flex-grow: 1;
     grid-template-areas: 'CATEGORY TITLE DUE';
+    grid-template-columns: 120px 1fr 80px;
     transition: all 0.5s;
 }
 .task-template:hover{
@@ -68,6 +73,7 @@
     justify-content: flex-end;
     align-items: center;
     font-size: x-large;
+    border-left: 2px solid #333;
 }
 
 .task-description{
