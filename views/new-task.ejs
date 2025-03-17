@@ -12,15 +12,16 @@
         <%- include('./partials/header.ejs') %>
         <div id="content">
             <form action="/new-task" method="post" id="new-task-form">
-                <div class="formBox" id="taskTitle">
-                    <label for="titleBox">Title</label>
-                    <input type="text" name="title" id="taskTitleBox" required>
-                </div>
+                <h2 id="formTitle">New Task</h2>
+                
+                    <label for="titleBox" class="hiddenLabel">Title</label>
+                    <input type="text" placeholder="Title..." name="title" id="taskTitleBox"  class="formBox" required>
+                
     
                 
                 <div  class="halfBox">
                     <div class="formBox" id="category">
-                        <label for="categorySelector">Category</label>
+                        <label for="categorySelector"  class="hiddenLabel">Category</label>
                         <div class="innerBox">
                             <div class="radioSelector">
                                 <input type="radio" name="category" id="Bar" value="Bar" required>
@@ -38,7 +39,7 @@
                     </div>
 
                     <div class="formBox" id="dueTime">
-                        <label for="dueTimeInput">Due Time</label>
+                        <label for="dueTimeInput" class="hiddenLabel">Due Time</label>
                         <div class="innerBox">
                             <input type="time" name="dueTime" id="dueTimeInput" required>
                             <input type="date" name="dueDate" id="dueDateInput" required>
@@ -47,14 +48,11 @@
                 </div>
 
     
-    
-                <div class="formBox" id="description">
-                    <label for="description">Description</label>
-                    <textarea name="description" id="descriptionBox" required></textarea>
-                </div>
+                    <label for="description" class="hiddenLabel">Description</label>
+                    <textarea placeholder="Describe the task..." name="description" class="formBox" id="description" required></textarea>
     
                 <div class="formBox" id="frequency">
-                    <label for="frequencySelector">Frequency</label>
+                    <label for="frequencySelector" class="hiddenLabel">Frequency</label>
                     <div class="innerBox">
                         <div class="radioSelector">
                             <input type="radio" name="frequency" id="Once" value="Once" required>
@@ -76,7 +74,7 @@
                     </div>
                 </div>
     
-                <button type="submit" id="submitTaskButton">Create Task</button>
+                <button type="submit" id="submitTaskButton"><span>Create Task</span></button>
             </form>
         </div>
         <%- include('./partials/footer.ejs') %>

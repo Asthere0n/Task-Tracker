@@ -42,6 +42,7 @@ header {
 
 #title {
     margin: 10px;
+    font-size: 52px;
     flex-grow: 1;
     display: flex;
     justify-content: center;

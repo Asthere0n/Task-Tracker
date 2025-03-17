@@ -1,8 +1,17 @@
 #new-task-form{
-    padding-top: 20px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     width: 100%;
+    background-color: #f0f0f0;
+    padding: 30px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #333;
+}
+
+#formTitle{
+    font-size: 32px;
 }
 
 .formBox{
@@ -12,8 +21,10 @@
     flex-direction: column;
     flex-grow: 1;
     justify-content: space-evenly;
+    background-color: #FFF;
     border: #333 2px solid;
     border-radius: 10px;
+    box-shadow: 2px 2px 2px #333;
     padding: 20px;
     flex-wrap: wrap;
     font-size: larger;
@@ -38,30 +49,40 @@
         height: 30px;
     }
 }
+.hiddenLabel{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 
 /* TASK TITLE */
 #taskTitleBox{
-    margin-inline: 20px;
-    flex-grow: 1;
-    height: 40px;
-    width: 90%;
-    padding-inline: 10px;
+    height: 80px;
+    width: 100%;
+    padding: 20px;
     font-size: larger;
 }
 
 /* TASK CATEGORY */
 
 /* DUE TIME & DATE */
+#dueTimeInput, #dueDateInput{
+    flex-grow: 1;
+    height: 50px;
+    font-size: 28px;
+    text-align: center;
+    border: none;
+    margin-inline: 10px;
+}
 
 /* TASK DESCRIPTION */
 #description{
-    flex-direction: column;
-}
-#descriptionBox{
-    width: 90%;
-    min-height: 150px;
-    border: 0px;
-    font-size: medium;
+    min-height: 250px;
 }
 
 /* TASK FREQUENCY */
@@ -70,15 +91,35 @@
 #submitTaskButton{
     height: 60px;
     border: #333 2px solid;
-    background-color: #444;
+    background: #444;
     border-radius: 10px;
-    font-size: large;
+    font-size: 32px;
+    font-family: 'Montserrat', sans-serif;
     cursor: pointer;
+    margin-top: 10px;
     color: white;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
 }
-#submitTaskButton:hover{
-    background-color: #666;
+#submitTaskButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: green;
+    transition: left 0.5s ease-out;
+    z-index: 1;
+}
+#submitTaskButton span {
+    position: relative;
+    z-index: 2;
+}
+#submitTaskButton:hover::before {
+    left: 0;
 }
 #submitTaskButton:active{
-    background-color: black;
+    background: #444;
 }
