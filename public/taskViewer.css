@@ -54,7 +54,7 @@
     grid-area: DESCRIPTION;
     padding: 20px;
     font-size: larger;
-    overflow-y: scroll;
+    overflow: hidden;
 }
 
 /* DUE */
@@ -76,4 +76,51 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* POP UP */
+.modal{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 100dvh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 998;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100dvb;
+    width: 100%;
+}
+.modal.open{
+    top: 0;
+}
+
+.popup-box{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 60px;
+    height: 20%;
+    transition: all 0.5s ease-in-out;
+    z-index: 999;
+    background-color: #f0f0f0;
+    color: black;
+    border: 10px solid red;
+    box-shadow: 5px 5px 5px #333;
+    .popup-actions{
+        display: flex;
+        margin: 10px;
+        button{
+            font-weight: 600;
+            font-size: large;
+        }
+    }
+}
+.popup-box.open{
+    top: 20dvh;
+
 }

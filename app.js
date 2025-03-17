@@ -41,7 +41,6 @@ app.get('/new-task', (req, res) => {
 });
 
 app.post('/new-task', (req, res) => {
-  console.log(req.body)
   const task = new Task(req.body)
   task.save()
     .then(() => {
@@ -59,4 +58,13 @@ app.get('/task/:id', (req, res) => {
     })
     .catch(err => console.error(err))
 
+})
+
+app.delete('/task/:id', (req, res) => {
+  const id = req.params.id
+
+  console.log("Delete: ", id)
+  Task.findByIdAndDelete(id).then(result=>{
+    res.json({redirect:"/"})
+  })
 })
