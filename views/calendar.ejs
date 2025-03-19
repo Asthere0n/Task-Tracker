@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendars</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calendar.css">
+</head>
+
+<body>
+    <div id="layout">
+        <%- include("./partials/header.ejs") %>
+            <div id="content">
+                <section id="monthPicker">
+                    <button class="monthArrow" id="previousMonth">
+                        <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4V20M8 12H20M8 12L12 8M8 12L12 16" stroke="#000000" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div id="currentDate">
+                        <h2 id="monthLabel">Month</h2>
+                        <h2 id="yearLabel">Year</h2>
+                    </div>
+                    <button class="monthArrow" id="nextMonth">
+                        <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 4V20M4 12H16M16 12L12 8M16 12L12 16" stroke="#000000" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </section>
+                <section id="monthView">
+                </section>
+            </div>
+            <%- include("./partials/footer.ejs") %>
+    </div>
+</body>
+
+</html>

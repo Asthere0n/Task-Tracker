@@ -26,6 +26,7 @@ mongoose.connect(dbURI, {})
   .catch(err => console.error('Connection error:', err));
 
 // routes
+    //  Home
 app.get('/', (req, res) => {
   Task.find()
     .then(result => {
@@ -36,6 +37,7 @@ app.get('/', (req, res) => {
     });
 });
 
+    // New Task
 app.get('/new-task', (req, res) => {
   res.render('new-task');
 });
@@ -50,6 +52,7 @@ app.post('/new-task', (req, res) => {
     .catch((err) => console.error(err))
 })
 
+    // Task
 app.get('/task/:id', (req, res) => {
   const id = req.params.id
   Task.findById(id)
@@ -67,4 +70,9 @@ app.delete('/task/:id', (req, res) => {
   Task.findByIdAndDelete(id).then(result=>{
     res.json({redirect:"/"})
   })
+})
+
+    //Calendar
+app.get('/calendar', (req, res) => {
+  res.render('calendar')
 })
