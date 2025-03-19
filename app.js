@@ -62,7 +62,6 @@ app.get('/task/:id', (req, res) => {
     .catch(err => console.error(err))
 
 })
-
 app.delete('/task/:id', (req, res) => {
   const id = req.params.id
 
@@ -74,5 +73,15 @@ app.delete('/task/:id', (req, res) => {
 
     //Calendar
 app.get('/calendar', (req, res) => {
-  res.render('calendar')
+  const today = new Date()
+  const month = today.getMonth()
+  const year = today.getFullYear()
+  res.redirect(`/calendar/${year}/${month}`)
+})
+app.get('/calendar/:year/:month', (req, res) => {
+  const year = parseInt(req.params.year)
+  const month = parseInt(req.params.month) - 1
+
+  const requestedDate = new Date(year, month, 1)
+  res.render('calendar', {date: requestedDate})
 })
