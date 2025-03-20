@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import 'dotenv/config';
 import Task from "./models/taskModel.js"
+import { requestMonth } from "./public/utils/requestMonth.js";
 
 const app = express();
 
@@ -80,8 +81,8 @@ app.get('/calendar', (req, res) => {
 })
 app.get('/calendar/:year/:month', (req, res) => {
   const year = parseInt(req.params.year)
-  const month = parseInt(req.params.month) - 1
+  const month = parseInt(req.params.month)
 
-  const requestedDate = new Date(year, month, 1)
-  res.render('calendar', {date: requestedDate})
+  const requestedMonth = requestMonth(year, month)
+  res.render('calendar', {month: requestedMonth})
 })

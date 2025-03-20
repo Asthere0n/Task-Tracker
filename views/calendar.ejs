@@ -14,9 +14,8 @@
         <%- include("./partials/header.ejs") %>
 
             <div id="content">
-                <% today = date
-                const month = today.toLocaleString('default', {month: 'long'}) 
-                const year = today.getFullYear()%>
+                <%  const currentMonth = month[0].toLocaleString('default', {month: 'long'}) 
+                    const currentYear = month[0].getFullYear()%>
 
                 <!-- MONTHPICKER -->
                 <section id="monthPicker">
@@ -28,8 +27,8 @@
                         </svg>
                     </button>
                     <div id="currentDate">
-                        <h2 id="monthLabel"><%= month %></h2>
-                        <h2 id="yearLabel"><%= year %></h2>
+                        <h2 id="monthLabel"><%= currentMonth %></h2>
+                        <h2 id="yearLabel"><%= currentYear %></h2>
                     </div>
                     <button class="monthArrow" id="nextMonth">
                         <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
@@ -42,30 +41,13 @@
 
                 <!-- DAY VIEW -->
                 <section id="dayView">
-                    <%  %>
-                    <div class="day">
-                        <p class="dayTitle">01</p>
-                        <div class="task-completed">
-                            <svg width="18px" height="18px" viewBox="0 0 24 24" fill="limegreen" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <p><span>10</span> Done</p>
-                        </div>
-
-                        <div class="task-late">
-                            <svg width="18px" height="18px" viewBox="0 0 24 24" fill="yellow" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <p><span>10</span> Late</p>
-                        </div>
-
-                    <div class="task-pending">
-                        <svg width="18px" height="18px" viewBox="0 0 24 24" fill="gray" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <p><span>10</span> Pending</p>
-                    </div>
-                    </div>
+                    <% for (let i = 0; i < month[0].getDay(); i++) {%>
+                        <%- include('./partials/dayViewer.ejs', {date:'empty'}) %>
+                    <%}%>
+                    <% month.forEach(day => {%>
+                        <%- include('./partials/dayViewer.ejs', {date: day}) %>
+                        
+                    <%}); %>
                 </section>
             </div>
             <%- include("./partials/footer.ejs") %>

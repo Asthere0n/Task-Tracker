@@ -38,12 +38,14 @@ header {
     align-items: center;
     width: 100%;
     height: 100px;
+    a{
+        flex-grow: 1;
+    }
 }
 
 #title {
     margin: 10px;
     font-size: 52px;
-    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
