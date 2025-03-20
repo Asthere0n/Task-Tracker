@@ -12,7 +12,7 @@
     border-radius: 10px;
     background-color: #fff;
     display: grid;
-    grid-template-columns: 120px 1fr 100px;
+    grid-template-columns: 120px 1fr 160px;
     grid-template-rows: 80px 1fr 60px;
     grid-template-areas: 
     'CATEGORY TITLE DUE'
@@ -30,13 +30,13 @@
     grid-area: TITLE;
     font-size: xx-large;
     display: flex;
-    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
     padding: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 
 /* CATEGORY TAG */
 .task-category{
@@ -61,9 +61,11 @@
 .task-due{
     grid-area: DUE;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     border-left: #333 2px solid;
+    padding-left: 10px;
     p{
         font-size: x-large;
     }
@@ -122,5 +124,4 @@
 }
 .popup-box.open{
     top: 20dvh;
-
 }

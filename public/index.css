@@ -28,6 +28,11 @@
     border-bottom: #333 1px solid;
     margin-bottom: 20px;
 }
+.sectionDate{
+    padding: 5px;
+    font-size: 20px;
+    width: 300px;
+}
 
 /* TASK TEMPLATE */
 .task-template{

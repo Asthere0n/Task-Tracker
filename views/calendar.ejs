@@ -44,12 +44,12 @@
                 </section>
 
                 <!-- DAY VIEW -->
-                <section id="dayView">
+                <section id="dayCaption">
                     <% for (let i = 0; i < month[0].getDay(); i++) {%>
-                        <%- include('./partials/dayViewer.ejs', {date:'empty'}) %>
+                        <%- include('./partials/dayCaption.ejs', {date:'empty'}) %>
                     <%}%>
                     <% month.forEach(day => {%>
-                        <%- include('./partials/dayViewer.ejs', {date: day}) %>
+                        <%- include('./partials/dayCaption.ejs', {date: day}) %>
                         
                     <%}); %>
                 </section>

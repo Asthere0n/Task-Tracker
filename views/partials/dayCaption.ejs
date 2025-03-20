@@ -1,9 +1,9 @@
-
-    <% if (date !== 'empty') {
-
-        const currentMonth = date.getMonth()+1
-        const currentYear = date.getFullYear()
-     %>
+<% if (date !== 'empty') {
+    
+    const currentMonth = date.getMonth()+1
+    const currentYear = date.getFullYear()
+    %>
+    <a href="/calendar/<%= date.getFullYear() %>/<%= date.getMonth() %>/<%= date.getDate() %>">
     <div class="day">
         <p class="dayTitle"><%= date.getDate()  %></p> 
         <div class="task-completed">
@@ -30,3 +30,4 @@
     <% } else { %>
         <div class=""></div>
         <%} %>
+    </a>

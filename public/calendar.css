@@ -23,7 +23,7 @@
     text-transform: capitalize;
     margin-right: 20px;
 }
-#dayView{
+#dayCaption{
     margin-block: 20px;
     gap: 10px;
     width: 100%;
@@ -46,6 +46,7 @@
 .dayTitle{
     font-size: 32px;
     font-weight: 700;
+    flex-grow: 1;
 }
 .task-completed, .task-late, .task-pending{
     display: flex;

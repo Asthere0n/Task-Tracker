@@ -29,13 +29,8 @@ mongoose.connect(dbURI, {})
 // routes
     //  Home
 app.get('/', (req, res) => {
-  Task.find()
-    .then(result => {
-      res.render('index', { tasks: result });
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  const currentDate = new Date()
+  res.redirect(`/calendar/${currentDate.getFullYear()}/${currentDate.getMonth() + 1}/${currentDate.getDate()}`)
 });
 
     // New Task
@@ -47,7 +42,7 @@ app.post('/new-task', (req, res) => {
   const task = new Task(req.body)
   task.save()
     .then(() => {
-      console.log('New task recorded')
+      console.log('New task recorded:', task)
       res.redirect('/')
     })
     .catch((err) => console.error(err))
@@ -85,4 +80,15 @@ app.get('/calendar/:year/:month', (req, res) => {
 
   const requestedMonth = requestMonth(year, month)
   res.render('calendar', {month: requestedMonth})
+})
+app.get('/calendar/:year/:month/:day', (req, res)=>{
+  const year = parseInt(req.params.year)
+  const month = String(parseInt(req.params.month)).padStart(2, '0')
+  const day = String(parseInt(req.params.day)).padStart(2, '0')
+  const requestedDay = `${year}-${month}-${day}`
+
+  Task.find({ dueDate: { $in: [requestedDay] } })
+  .then((result)=>{
+    res.render('dayViewer', {tasks: result, date: new Date(requestedDay)})
+  })
 })

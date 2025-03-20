@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Task Tracker</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../../index.css">
+</head>
+
+<body>
+    <div id="layout">
+
+        <%- include('./partials/header.ejs') %>
+
+        <div id="content">
+        <% const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; %>
+                <!--PENDING TASKS -->
+                <section class="content-box" id="task-list-pending">
+                    <div class="task-box-header">
+                        <h2 class="sectionTitle">Pending Task</h2>
+                        <span class="sectionDate"><%= date.getDate() %>  of <%= months[date.getMonth()] %> of <%=date.getFullYear()%></span>
+                    </div>
+                    <div class="task-grid">
+
+                        <% let completedTask=[]; if (tasks && tasks.length> 0) { %>
+                            <% tasks.forEach(task=> {%>
+                                <%- include('./partials/taskTemplate.ejs', {task: task}) %>
+                                <%}); %>
+                                <% } else { %>
+                                        <p>No pending task</p>
+                                <% } %>
+                    </div>
+                </section>
+
+            <!-- COMPLETED TASKS -->
+            <section class="content-box" id="task-list-completed">
+                <h2 class="sectionTitle">Completed Task</h2>
+                <% if (completedTask.length> 0){ %>
+                    <% } else {%>
+                        <p>No pending task</p>
+                    <% } %>
+            </section>
+
+        </div>
+
+        <%- include('./partials/footer.ejs') %>
+    </div>
+</body>
+
+</html>
