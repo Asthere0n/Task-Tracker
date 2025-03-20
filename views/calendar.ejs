@@ -15,28 +15,32 @@
 
             <div id="content">
                 <%  const currentMonth = month[0].toLocaleString('default', {month: 'long'}) 
-                    const currentYear = month[0].getFullYear()%>
-
+                    const currentYear = month[0].getFullYear()
+                    const previousMonthURL = `/calendar/${month[0].getFullYear()}/${month[0].getMonth()-1}` 
+                    const nextMonthURL = `/calendar/${month[0].getFullYear()}/${month[0].getMonth()+1}`
+                %>
                 <!-- MONTHPICKER -->
                 <section id="monthPicker">
-                    <button class="monthArrow" id="previousMonth">
+                    <a href="<%= previousMonthURL %>" class="monthArrow" id="previousMonth">
                         <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 4V20M8 12H20M8 12L12 8M8 12L12 16" stroke="#000000" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                    </button>
+                    </a>
+
                     <div id="currentDate">
                         <h2 id="monthLabel"><%= currentMonth %></h2>
                         <h2 id="yearLabel"><%= currentYear %></h2>
                     </div>
-                    <button class="monthArrow" id="nextMonth">
+
+                    <a href="<%= nextMonthURL %>" class="monthArrow" id="nextMonth">
                         <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path d="M20 4V20M4 12H16M16 12L12 8M16 12L12 16" stroke="#000000" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                    </button>
+                    </a>
                 </section>
 
                 <!-- DAY VIEW -->
