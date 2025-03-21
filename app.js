@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import 'dotenv/config';
 import Task from "./models/taskModel.js"
 import { requestMonth } from "./public/utils/requestMonth.js";
+import { formatDate, generateDateURL } from "./public/utils/dateFormatter.js";
 
 const app = express();
 
@@ -29,8 +30,8 @@ mongoose.connect(dbURI, {})
 // routes
     //  Home
 app.get('/', (req, res) => {
-  const currentDate = new Date()
-  res.redirect(`/calendar/${currentDate.getFullYear()}/${currentDate.getMonth() + 1}/${currentDate.getDate()}`)
+  const dateURL = generateDateURL(new Date(), 'YMD')
+  res.redirect(dateURL)
 });
 
     // New Task
@@ -58,6 +59,25 @@ app.get('/task/:id', (req, res) => {
     .catch(err => console.error(err))
 
 })
+
+app.post('/task/:id', (req, res) => {
+  const id = req.params.id
+  const author = req.body
+  const date = new Date
+  const completionData = [author.completedBy, formatDate(date, YMD), `${date.getHours()}:${date.getMinutes()}` ]
+
+  Task.findById(id)
+  .then((result)=>{
+    result.completedBy = [completionData]
+    result.save()
+      .then(() => {
+        const dateURL = generateDateURL(new Date(date)) 
+        res.redirect(dateURL)
+      })
+      .catch(err => console.error(err))
+  })
+})
+
 app.delete('/task/:id', (req, res) => {
   const id = req.params.id
 
@@ -70,13 +90,12 @@ app.delete('/task/:id', (req, res) => {
     //Calendar
 app.get('/calendar', (req, res) => {
   const today = new Date()
-  const month = today.getMonth()
-  const year = today.getFullYear()
-  res.redirect(`/calendar/${year}/${month}`)
+  const dateURL = generateDateURL(today, 'YM')
+  res.redirect(dateURL)
 })
 app.get('/calendar/:year/:month', (req, res) => {
   const year = parseInt(req.params.year)
-  const month = parseInt(req.params.month)
+  const month = parseInt(req.params.month) - 1
 
   const requestedMonth = requestMonth(year, month)
   res.render('calendar', {month: requestedMonth})

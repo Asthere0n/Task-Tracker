@@ -23,11 +23,13 @@ const Schema = mongoose.Schema({
     },
     completed: {
         type:Boolean,
-        required: false
+        required: false,
+        default: false
     },
-    completedBy: {
-        type: String,
-        required: false
+    completedBy:{
+        type: Array,
+        required: false,
+        default: false
     }
 })
 

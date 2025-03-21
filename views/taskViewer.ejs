@@ -39,7 +39,7 @@
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
-                <button id="task-complete" class="task-button">
+                <button class="task-button" id="task-complete">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path
@@ -63,18 +63,57 @@
         </article>
     </div>
 
-    <div class="modal" id="modal">
-        <div class="popup-box" id="popup-box">
+    <div class="modal" id="deleteModal">
+        <div class="popup-box" id="delete-box">
             <p>Are you sure you want to <span style="color: red; font-weight: 900;">DELETE</span> the task?</p>
             <p style="font-weight: bolder;">
                 <%= task.title %>
             </p>
             <div class="popup-actions">
-                <button class="task-button" id="confirm-button">Yes</button>
-                <button class="task-button" id="cancel-button">No</button>
+                <button class="task-button" id="confirm-delete"><svg viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.17065 4C9.58249 2.83481 10.6937 2 11.9999 2C13.3062 2 14.4174 2.83481 14.8292 4"
+                            stroke-linecap="round" />
+                        <path d="M20.5 6H3.49988" stroke-linecap="round" />
+                        <path
+                            d="M18.3735 15.3991C18.1965 18.054 18.108 19.3815 17.243 20.1907C16.378 21 15.0476 21 12.3868 21H11.6134C8.9526 21 7.6222 21 6.75719 20.1907C5.89218 19.3815 5.80368 18.054 5.62669 15.3991L5.16675 8.5M18.8334 8.5L18.6334 11.5"
+                            stroke-linecap="round" />
+                        <path d="M9.5 11L10 16" stroke-linecap="round" />
+                        <path d="M14.5 11L14 16" stroke-linecap="round" />
+                    </svg></button>
+                <button class="task-button" id="cancel-delete"><svg viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3 8H16.5C18.9853 8 21 10.0147 21 12.5C21 14.9853 18.9853 17 16.5 17H3M3 8L6 5M3 8L6 11"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg></button>
             </div>
         </div>
     </div>
+
+    <div class="modal" id="completeModal">
+        <div class="popup-box" id="complete-box">
+            <form method="post">
+                <label for="operatorName" id="completePopupTitle">Name:</label>
+                <input type="text" name="completedBy" id="operatorName" required>
+                <button type="submit" id="confirm-complete" class="task-button">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7"
+                            stroke-linecap="round" />
+                    </svg>
+                </button>
+                <div class="task-button" id="cancel-complete">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 8H16.5C18.9853 8 21 10.0147 21 12.5C21 14.9853 18.9853 17 16.5 17H3M3 8L6 5M3 8L6 11"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </form>
+        </div>
+    </div>
+
 
     <script type="module" src="/utils/goBack.js"></script>
     <script type="module" src="/utils/togglePopUp.js" defer></script>

@@ -111,7 +111,7 @@
     z-index: 999;
     background-color: #f0f0f0;
     color: black;
-    border: 10px solid red;
+    border: 2px solid #333;
     box-shadow: 5px 5px 5px #333;
     .popup-actions{
         display: flex;
@@ -124,4 +124,43 @@
 }
 .popup-box.open{
     top: 20dvh;
+}
+
+#complete-box{
+    width: 40%;
+    height: 40%;
+    form{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 20px, 1fr, 1fr;
+        grid-template-areas: 
+        "TITLE TITLE"
+        "INPUT INPUT"
+        "CONFIRM CANCEL";
+    }   
+}
+#completePopupTitle{
+    grid-area: TITLE;
+    font-size: 30px;
+}
+#operatorName{
+    grid-area: INPUT;
+    flex-grow: 1;
+    height: 50px;
+    border-radius: 5px;
+    border: #333 2px solid;
+    padding-inline: 20px;
+    font-size: 20px;
+    margin-bottom: 20px;
+
+}
+#confirm-complete{
+    grid-area: CONFIRM;
+}
+#cancel-complete{
+    grid-area: CANCEL;
+}
+
+#delete-box{
+    border: red 16px solid;
 }

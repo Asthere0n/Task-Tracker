@@ -14,10 +14,22 @@
         <%- include("./partials/header.ejs") %>
 
             <div id="content">
-                <%  const currentMonth = month[0].toLocaleString('default', {month: 'long'}) 
-                    const currentYear = month[0].getFullYear()
-                    const previousMonthURL = `/calendar/${month[0].getFullYear()}/${month[0].getMonth()-1}` 
-                    const nextMonthURL = `/calendar/${month[0].getFullYear()}/${month[0].getMonth()+1}`
+                <% 
+                    <!-- Calculating the current date object -->
+                    const currentDate = new Date(month[0]);
+                    const currentMonth = currentDate.toLocaleString('default', {month: 'long'}) 
+                    const currentYear = currentDate.getFullYear()
+
+                    <!--Calculating Previous month and Next month dates-->
+                    const prevMonthDate = new Date(currentDate);
+                    prevMonthDate.setMonth(prevMonthDate.getMonth() - 1);
+                    
+                    const nextMonthDate = new Date(currentDate);
+                    nextMonthDate.setMonth(nextMonthDate.getMonth() + 1);
+
+                    const previousMonthURL = `/calendar/${prevMonthDate.getFullYear()}/${prevMonthDate.getMonth() + 1}`;
+                    const nextMonthURL = `/calendar/${nextMonthDate.getFullYear()}/${nextMonthDate.getMonth() + 1}`;
+                    
                 %>
                 <!-- MONTHPICKER -->
                 <section id="monthPicker">
