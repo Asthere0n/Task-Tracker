@@ -5,13 +5,13 @@ import { requestMonth } from "../public/utils/requestMonth.js";
 
 const calendarRouter = express.Router()
 
-calendarRouter.get('/calendar', (req, res) => {
+calendarRouter.get('/', (req, res) => {
     const today = new Date()
     const dateURL = generateDateURL(today, 'YM')
     res.redirect(dateURL)
 })
 
-calendarRouter.get('/calendar/:year/:month', (req, res) => {
+calendarRouter.get('/:year/:month', (req, res) => {
     const year = parseInt(req.params.year)
     const month = parseInt(req.params.month) - 1
 
@@ -19,7 +19,7 @@ calendarRouter.get('/calendar/:year/:month', (req, res) => {
     res.render('calendar', { month: requestedMonth })
 })
 
-calendarRouter.get('/calendar/:year/:month/:day', (req, res) => {
+calendarRouter.get('/:year/:month/:day', (req, res) => {
     const year = parseInt(req.params.year)
     const month = String(parseInt(req.params.month)).padStart(2, '0')
     const day = String(parseInt(req.params.day)).padStart(2, '0')

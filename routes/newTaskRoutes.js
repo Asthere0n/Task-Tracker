@@ -4,11 +4,11 @@ import Task from "../models/taskModel.js"
 const newTaskRouter = express.Router()
 
 
-newTaskRouter.get('/new-task', (req, res) => {
+newTaskRouter.get('/', (req, res) => {
     res.render('new-task');
 });
 
-newTaskRouter.post('/new-task', (req, res) => {
+newTaskRouter.post('/', (req, res) => {
     const task = new Task(req.body)
     task.save()
         .then(() => {

@@ -3,7 +3,7 @@
     const currentMonth = date.getMonth()+1
     const currentYear = date.getFullYear()
     %>
-    <a href="/calendar/<%= date.getFullYear() %>/<%= date.getMonth() %>/<%= date.getDate() %>">
+    <a href="/calendar/<%= date.getFullYear() %>/<%= date.getMonth()+1 %>/<%= date.getDate() %>">
     <div class="day">
         <p class="dayTitle"><%= date.getDate()  %></p> 
         <div class="task-completed">

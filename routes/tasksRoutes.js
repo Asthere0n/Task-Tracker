@@ -4,17 +4,16 @@ import Task from "../models/taskModel.js"
 
 const taskRouter = express.Router()
 
-taskRouter.get('/task/:id', (req, res) => {
+taskRouter.get('/:id', (req, res) => {
     const id = req.params.id
     Task.findById(id)
         .then((result) => {
             res.render('taskViewer', { task: result })
         })
         .catch(err => console.error(err))
-
 })
 
-taskRouter.post('/task/:id', (req, res) => {
+taskRouter.post('/:id', (req, res) => {
     const id = req.params.id
     const author = req.body
     const date = new Date
@@ -33,10 +32,8 @@ taskRouter.post('/task/:id', (req, res) => {
         })
 })
 
-taskRouter.delete('/task/:id', (req, res) => {
+taskRouter.delete('/:id', (req, res) => {
     const id = req.params.id
-
-    console.log("Delete: ", id)
     Task.findByIdAndDelete(id).then(result => {
         res.json({ redirect: "/" })
     })

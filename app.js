@@ -36,10 +36,10 @@ app.get('/', (req, res) => {
 });
 
     // /New-Task routes
-app.use(newTaskRouter)
+app.use('/new-task', newTaskRouter)
 
     // /Task routes
-app.use(taskRouter)
+app.use('/task', taskRouter)
 
     // /Calendar routes
-app.use(calendarRouter)
+app.use('/calendar', calendarRouter)
