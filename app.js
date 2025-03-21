@@ -64,14 +64,15 @@ app.post('/task/:id', (req, res) => {
   const id = req.params.id
   const author = req.body
   const date = new Date
-  const completionData = [author.completedBy, formatDate(date, YMD), `${date.getHours()}:${date.getMinutes()}` ]
+  const completionData = [author.completedBy, formatDate(date, 'YMD'), `${date.getHours()}:${date.getMinutes()}` ]
 
   Task.findById(id)
   .then((result)=>{
-    result.completedBy = [completionData]
+    result.completedBy = completionData
+    result.completed = true
     result.save()
       .then(() => {
-        const dateURL = generateDateURL(new Date(date)) 
+        const dateURL = generateDateURL(new Date(date), 'YMD') 
         res.redirect(dateURL)
       })
       .catch(err => console.error(err))

@@ -11,62 +11,79 @@
 
 <body>
     <div id="layout">
-        <%- include("./partials/header.ejs") %>
 
-            <div id="content">
-                <% 
-                    <!-- Calculating the current date object -->
+        <%- include("./partials/header.ejs") %>
+            <section id="content">
+                <% <!-- Calculating the current date object -->
                     const currentDate = new Date(month[0]);
-                    const currentMonth = currentDate.toLocaleString('default', {month: 'long'}) 
+                    const currentMonth = currentDate.toLocaleString('default', {month: 'long'})
                     const currentYear = currentDate.getFullYear()
 
                     <!--Calculating Previous month and Next month dates-->
                     const prevMonthDate = new Date(currentDate);
                     prevMonthDate.setMonth(prevMonthDate.getMonth() - 1);
-                    
+
                     const nextMonthDate = new Date(currentDate);
                     nextMonthDate.setMonth(nextMonthDate.getMonth() + 1);
 
                     const previousMonthURL = `/calendar/${prevMonthDate.getFullYear()}/${prevMonthDate.getMonth() + 1}`;
                     const nextMonthURL = `/calendar/${nextMonthDate.getFullYear()}/${nextMonthDate.getMonth() + 1}`;
-                    
-                %>
-                <!-- MONTHPICKER -->
-                <section id="monthPicker">
-                    <a href="<%= previousMonthURL %>" class="monthArrow" id="previousMonth">
-                        <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 4V20M8 12H20M8 12L12 8M8 12L12 16" stroke="#000000" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
 
-                    <div id="currentDate">
-                        <h2 id="monthLabel"><%= currentMonth %></h2>
-                        <h2 id="yearLabel"><%= currentYear %></h2>
-                    </div>
+                    %>
+                    <!-- MONTHPICKER -->
+                    <section id="monthPicker">
+                        <a href="<%= previousMonthURL %>" class="monthArrow" id="previousMonth">
+                            <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4V20M8 12H20M8 12L12 8M8 12L12 16" stroke="#000000" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
 
-                    <a href="<%= nextMonthURL %>" class="monthArrow" id="nextMonth">
-                        <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 4V20M4 12H16M16 12L12 8M16 12L12 16" stroke="#000000" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                </section>
+                        <div id="currentDate">
+                            <h2 id="monthLabel">
+                                <%= currentMonth %>
+                            </h2>
+                            <h2 id="yearLabel">
+                                <%= currentYear %>
+                            </h2>
+                        </div>
 
-                <!-- DAY VIEW -->
-                <section id="dayCaption">
-                    <% for (let i = 0; i < month[0].getDay(); i++) {%>
-                        <%- include('./partials/dayCaption.ejs', {date:'empty'}) %>
-                    <%}%>
-                    <% month.forEach(day => {%>
-                        <%- include('./partials/dayCaption.ejs', {date: day}) %>
-                        
-                    <%}); %>
-                </section>
-            </div>
-            <%- include("./partials/footer.ejs") %>
+                        <a href="<%= nextMonthURL %>" class="monthArrow" id="nextMonth">
+                            <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 4V20M4 12H16M16 12L12 8M16 12L12 16" stroke="#000000" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </section>
+
+                    <!-- DAY VIEW -->
+                    <section id="weekCaption">
+                        <span></span>
+                        <span class="dayLabel">Sunday</span>
+                        <span class="dayLabel">Monday</span>
+                        <span class="dayLabel">Tuesday</span>
+                        <span class="dayLabel">Wednesday</span>
+                        <span class="dayLabel">Thursday</span>
+                        <span class="dayLabel">Friday</span>
+                        <span class="dayLabel">Saturday</span>
+                        <span></span>
+                    </section>
+
+                    <!-- CALENDAR GRID -->
+                    <section id="calendarGrid">
+                        <% for (let i=0; i < month[0].getDay(); i++) {%>
+                            <%- include('./partials/dayCaption.ejs', {date:'empty'}) %>
+                                <%}%>
+                                    <% month.forEach(day=> {%>
+                                        <%- include('./partials/dayCaption.ejs', {date: day}) %>
+
+                                            <%}); %>
+                    </section>
+
+            </section>
+        <%- include("./partials/footer.ejs") %>
     </div>
 </body>
 

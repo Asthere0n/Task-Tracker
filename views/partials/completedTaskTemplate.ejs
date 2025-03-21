@@ -1,0 +1,19 @@
+<% const category = task.category%>
+<a href="/task/<%= task.id %>">
+<article class="task-template">
+
+    <!-- TITLE -->
+    <h3 class="task-title"><span>Completed: </span><%= task.title %></h3>
+    
+    <!-- CATEGORY -->
+    <div class="task-category color<%= category %>">
+      <span><%= task.category %></span>
+     </div>
+     
+     <!-- DUE -->
+     <div class="task-completed">
+       <p class="task-dueTime"><%= task.completedBy[2] %></p>
+       <p class="task-completedBy"><%= task.completedBy[0] %></p>
+      </div>
+  </article>  
+</a>

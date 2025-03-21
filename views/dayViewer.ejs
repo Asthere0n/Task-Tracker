@@ -24,23 +24,28 @@
                     </div>
                     <div class="task-grid">
 
-                        <% let completedTask=[]; if (tasks && tasks.length> 0) { %>
-                            <% tasks.forEach(task=> {%>
+                        <% if (tasks && tasks.length> 0) { %>
+                            <% tasks.forEach(task=> {
+                                if(!task.completed){ %>
                                 <%- include('./partials/taskTemplate.ejs', {task: task}) %>
-                                <%}); %>
                                 <% } else { %>
                                         <p>No pending task</p>
                                 <% } %>
+                                <%})}; %>
                     </div>
                 </section>
 
             <!-- COMPLETED TASKS -->
             <section class="content-box" id="task-list-completed">
                 <h2 class="sectionTitle">Completed Task</h2>
-                <% if (completedTask.length> 0){ %>
-                    <% } else {%>
-                        <p>No pending task</p>
-                    <% } %>
+                <% if (tasks && tasks.length> 0) { %>
+                            <% tasks.forEach(task=> {
+                                if(task.completed){ %>
+                                <%- include('./partials/completedTaskTemplate.ejs', {task: task}) %>
+                                <% } else { %>
+                                        <p>No pending task</p>
+                                <% } %>
+                                <%})}; %>
             </section>
 
         </div>
