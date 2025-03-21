@@ -1,21 +1,9 @@
 import express from "express";
-import Task from "../models/taskModel.js"
+import { new_task_get, new_task_post } from "../controllers/newTaskController.js";
 
 const newTaskRouter = express.Router()
 
-
-newTaskRouter.get('/', (req, res) => {
-    res.render('new-task');
-});
-
-newTaskRouter.post('/', (req, res) => {
-    const task = new Task(req.body)
-    task.save()
-        .then(() => {
-            console.log('New task recorded:', task)
-            res.redirect('/')
-        })
-        .catch((err) => console.error(err))
-})
+newTaskRouter.get('/', new_task_get)
+newTaskRouter.post('/', new_task_post)
 
 export {newTaskRouter}

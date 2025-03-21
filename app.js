@@ -4,7 +4,7 @@ import 'dotenv/config';
 import { newTaskRouter } from "./routes/newTaskRoutes.js";
 import {taskRouter} from './routes/tasksRoutes.js'
 import { calendarRouter } from "./routes/calendarRoutes.js";
-import { generateDateURL } from "./public/utils/dateFormatter.js";
+import { index_handler } from "./controllers/indexController.js";
 
 const app = express();
 
@@ -30,10 +30,7 @@ mongoose.connect(dbURI, {})
 
 // routes
     //  /Home
-app.get('/', (req, res) => {
-  const dateURL = generateDateURL(new Date(), 'YMD')
-  res.redirect(dateURL)
-});
+app.get('/', index_handler);
 
     // /New-Task routes
 app.use('/new-task', newTaskRouter)
