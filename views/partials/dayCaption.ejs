@@ -2,9 +2,12 @@
     
     const currentMonth = date.getMonth()+1
     const currentYear = date.getFullYear()
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    console.log(today, date, today==date)
     %>
     <a href="/calendar/<%= date.getFullYear() %>/<%= date.getMonth()+1 %>/<%= date.getDate() %>">
-    <div class="day">
+    <div class="day" id="<%= today.getTime() === date.getTime() ? 'today' : '' %>">
         <p class="dayTitle"><%= date.getDate()  %></p> 
         <div class="task-completed">
             <svg width="18px" height="18px" viewBox="0 0 24 24" fill="limegreen" xmlns="http://www.w3.org/2000/svg">
