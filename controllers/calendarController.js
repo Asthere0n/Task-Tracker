@@ -1,6 +1,6 @@
 import Task from "../models/taskModel.js";
-import { generateDateURL } from "../public/utils/dateFormatter.js";
-import { requestMonth } from "../public/utils/requestMonth.js";
+import { generateDateURL } from "../components/dateFormatter.js";
+import { requestMonth } from "../components/requestMonth.js";
 
 function calendar_get(req, res) {
     const today = new Date()
@@ -18,11 +18,11 @@ function calendar_year_month_get(req, res) {
 
 function calendar_year_month_day_get(req, res) {
     const year = parseInt(req.params.year)
-    const month = String(parseInt(req.params.month)).padStart(2, '0')
-    const day = String(parseInt(req.params.day)).padStart(2, '0')
-    const requestedDay = `${year}-${month}-${day}`
+    const month = String(parseInt(req.params.month))
+    const day = String(parseInt(req.params.day))
+    const requestedDay = `${year}/${month}/${day}`
 
-    Task.find({ dueDate: { $in: [requestedDay] } })
+    Task.find({ dueDate:  requestedDay })
         .then((result) => {
             res.render('dayViewer', { tasks: result, date: new Date(requestedDay) })
         })

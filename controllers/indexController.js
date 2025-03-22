@@ -1,4 +1,4 @@
-import { generateDateURL } from "../public/utils/dateFormatter.js";
+import { generateDateURL } from "../components/dateFormatter.js";
 
 function index_handler(req, res) {
     const dateURL = generateDateURL(new Date(), 'YMD')
