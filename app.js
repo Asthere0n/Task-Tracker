@@ -21,7 +21,7 @@ const dbURI = process.env.MONGODB_URI;
 mongoose.connect(dbURI, { })
   .then(() => {
     console.log('Connected to MongoDB')
-    app.listen(3000);
+    app.listen(8080);
   })
   .then(() => {
     console.log('Server is running on http://localhost:3000')
