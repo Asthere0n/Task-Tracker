@@ -12,13 +12,13 @@ const app = express();
 app.set('view engine', 'ejs');
 // middleware
 app.use(express.static('public'));
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 
 
 //database connection & server initialization
 const dbURI = process.env.MONGODB_URI;
 
-mongoose.connect(dbURI, {})
+mongoose.connect(dbURI, { })
   .then(() => {
     console.log('Connected to MongoDB')
     app.listen(3000);
