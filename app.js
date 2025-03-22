@@ -17,14 +17,15 @@ app.use(express.urlencoded({ extended: true }))
 
 //database connection & server initialization
 const dbURI = process.env.MONGODB_URI;
+const port = process.env.PORT
 
 mongoose.connect(dbURI, { })
   .then(() => {
     console.log('Connected to MongoDB')
-    app.listen(8080);
+    app.listen(port);
   })
   .then(() => {
-    console.log('Server is running on http://localhost:3000')
+    console.log(`Server is running on http://localhost:${port}`)
   })
   .catch(err => console.error('Connection error:', err));
 

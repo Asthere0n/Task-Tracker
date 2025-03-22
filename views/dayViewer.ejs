@@ -28,8 +28,6 @@
                             <% tasks.forEach(task=> {
                                 if(!task.completed){ %>
                                 <%- include('./partials/taskTemplate.ejs', {task: task}) %>
-                                <% } else { %>
-                                        <p>No pending task</p>
                                 <% } %>
                                 <%})}; %>
                     </div>
@@ -42,8 +40,6 @@
                             <% tasks.forEach(task=> {
                                 if(task.completed){ %>
                                 <%- include('./partials/completedTaskTemplate.ejs', {task: task}) %>
-                                <% } else { %>
-                                        <p>No pending task</p>
                                 <% } %>
                                 <%})}; %>
             </section>
