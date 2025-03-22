@@ -4,7 +4,6 @@
     const currentYear = date.getFullYear()
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    console.log(today, date, today==date)
     %>
     <a href="/calendar/<%= date.getFullYear() %>/<%= date.getMonth()+1 %>/<%= date.getDate() %>">
     <div class="day" id="<%= today.getTime() === date.getTime() ? 'today' : '' %>">
