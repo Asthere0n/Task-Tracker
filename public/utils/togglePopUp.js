@@ -35,21 +35,7 @@ deleteButton.addEventListener("click", () => {
     deletePopupBG.add("open")
 })
 
-confirmDeleteButton.addEventListener("click", () => {
-    deletePopup.add("open")
-    deletePopupBG.add("open")
-})
-
 cancelDeleteButton.addEventListener("click", () => {
     deletePopup.remove("open")
     deletePopupBG.remove("open")
 })
-
-document.querySelectorAll('modal').forEach(
-    deletePopup.addEventListener('click', ()=>{
-        deletePopup.remove("open")
-        deletePopupBG.remove("open")
-        completePopup.remove("open")
-        completePopupBG.remove("open")
-    })
-)

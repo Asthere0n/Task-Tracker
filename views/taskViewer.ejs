@@ -131,15 +131,16 @@
     <script type="module" src="/utils/goBack.js"></script>
     <script type="module" src="/utils/togglePopUp.js" defer></script>
     <script type="module">
-        document.getElementById("confirm-button").addEventListener("click", () => {
+        document.getElementById("confirm-delete").addEventListener("click", () => {
+            const viewDate = new Date('<%=task.dueDate%>')
             const endpoint = `/task/<%= task.id %>`
             fetch(endpoint, {
                 method: "DELETE"
             }).then(() => {
-                window.location.href = "/"
+                window.location.href = `/calendar/${viewDate.getFullYear()}/${viewDate.getMonth()}/${viewDate.getDate()}`
             })
         })
-    </script>
+        </script>
 </body>
 
 </html>
