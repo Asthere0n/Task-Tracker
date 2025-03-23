@@ -1,4 +1,4 @@
-#monthPicker{
+#monthPicker {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,21 +9,25 @@
     border: 2px solid #333;
     box-shadow: 2px 2px 2px #333;
 }
-#currentDate{
+
+#currentDate {
     display: flex;
     flex-direction: row;
 }
-.monthArrow{
+
+.monthArrow {
     border: none;
     cursor: pointer;
     padding-block: 10px;
     padding-inline: 40px;
 }
-#monthLabel{
+
+#monthLabel {
     text-transform: capitalize;
     margin-right: 20px;
 }
-#weekCaption{
+
+#weekCaption {
     width: 100%;
     display: grid;
     grid-template-columns: 10px repeat(7, 1fr) 10px;
@@ -31,14 +35,16 @@
     border-radius: 10px;
     background-color: #333;
 }
-.dayLabel{
+
+.dayLabel {
     padding-block: 10px;
     color: #f0f0f0;
     text-align: center;
     border-left: #f0f0f0 1px solid;
     border-right: #f0f0f0 1px solid;
 }
-#calendarGrid{
+
+#calendarGrid {
     margin-block: 20px;
     gap: 10px;
     width: 100%;
@@ -50,7 +56,8 @@
     box-shadow: 2px 2px 2px black;
     border-radius: 15px;
 }
-.day{
+
+.day {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -62,21 +69,61 @@
     justify-content: center;
     font-size: 12px;
 }
-.dayTitle{
+
+.dayTitle {
     font-size: 32px;
     font-weight: 700;
     flex-grow: 1;
 }
-.task-completed, .task-late, .task-pending{
+
+.task-completed,
+.task-late,
+.task-pending {
     display: flex;
     flex-direction: row;
-    p{
+
+    p {
         padding-inline: 5px;
     }
 }
-#today{
+
+#today {
     background-color: palegoldenrod;
 }
 
 /* MEDIA QUERY */
-@media screen and (max-width:850px) {}
+@media screen and (max-width:850px) {
+    #content {
+        width: 100%;
+    }
+
+    #monthPicker {
+        border-radius: 0;
+        width: 100%;
+    }
+
+    #weekCaption {
+        display: none;
+    }
+
+    #calendarGrid {
+        margin: 0;
+        border-radius: 0;
+        gap: 5px;
+        flex-grow: 1;
+        padding: 0;
+        grid-template-rows: repeat(6, 1fr);
+        padding: 5px;
+    }
+
+    .day {
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+        font-size: 10px;
+        .task-completed,
+        .task-pending {
+            display: none;
+        }
+    }
+}

@@ -181,13 +181,18 @@ footer {
 
 /* MEDIA QUERY */
 @media screen and (max-width:850px) {
-    
-    header #navBar {
-        display: none;
+
+
+    header {
+        #navBar {
+            display: none;
+        }
     }
-    #content{
+
+    #content {
         overflow-y: scroll;
         width: 90%;
+        height: 100%;
     }
 
     footer {
@@ -195,22 +200,29 @@ footer {
         flex-direction: column;
         height: 100px;
         align-items: stretch;
+
         #navBar {
             display: flex;
             margin: 0;
-            ul{
+
+            ul {
                 display: flex;
                 justify-content: space-around;
                 width: 100%;
             }
         }
-        p{
+
+        p {
             display: none;
         }
-        .navButton{
-            a{
+
+        .navButton {
+            a {
                 background-color: transparent;
-                svg{stroke: #f0f0f0;}
+
+                svg {
+                    stroke: #f0f0f0;
+                }
             }
         }
     }
