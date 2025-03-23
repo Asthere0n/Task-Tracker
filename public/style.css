@@ -8,10 +8,15 @@
     text-decoration: none;
     list-style: none;
 }
-a{
+
+a {
     color: black;
 }
-h1,h2,h3,h4 {
+
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -19,7 +24,7 @@ h1,h2,h3,h4 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    height: 100dvh;
     align-items: center;
 }
 
@@ -39,7 +44,8 @@ header {
     align-items: center;
     width: 100%;
     height: 100px;
-    a{
+
+    a {
         flex-grow: 1;
     }
 }
@@ -62,8 +68,12 @@ header {
     margin-right: 20px;
 }
 
+footer #navBar {
+    display: none;
+}
+
 .navButton {
-    a{
+    a {
         display: flex;
         padding: 10px;
         width: 80px;
@@ -77,12 +87,14 @@ header {
         align-items: center;
         transition: all 0.3s;
         box-shadow: 2px 2px 2px #333;
-        svg{
+
+        svg {
             stroke: #333;
             stroke-width: 1.5px;
         }
     }
-    a:hover{
+
+    a:hover {
         box-shadow: none;
         /*background-color: #333;
         scale: 1.1;
@@ -90,12 +102,13 @@ header {
             stroke: #fff;
         }*/
     }
-    a:active{
+
+    a:active {
         background-color: black;
     }
 }
 
-footer{
+footer {
     width: 100%;
     height: 30px;
     background-color: #333;
@@ -103,22 +116,29 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    a {
+        color: white;
+    }
 }
 
-.colorBar{
+.colorBar {
     background-color: lightblue;
 }
-.colorFloor{
+
+.colorFloor {
     background-color: lime;
 }
-.colorAdmin{
+
+.colorAdmin {
     background-color: pink;
 }
-.colorCompleted{
+
+.colorCompleted {
     background-color: grey;
 }
 
-.task-button{
+.task-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,25 +152,66 @@ footer{
     margin-inline: 20px;
     margin-block: 10px;
     transition: all 0.5s;
-    svg{
+
+    svg {
         stroke: #333;
         stroke-width: 1.5px;
         height: 50px;
         width: 50px;
     }
 }
-.task-button:hover{
+
+.task-button:hover {
     box-shadow: none;
 }
+
 #task-complete:hover {
-    svg{
+    svg {
         stroke: lime;
         stroke-width: 2px;
     }
 }
+
 #task-delete:hover {
-    svg{
+    svg {
         stroke: red;
         stroke-width: 2px;
+    }
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width:850px) {
+    
+    header #navBar {
+        display: none;
+    }
+    #content{
+        overflow-y: scroll;
+        width: 90%;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        height: 100px;
+        align-items: stretch;
+        #navBar {
+            display: flex;
+            margin: 0;
+            ul{
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+            }
+        }
+        p{
+            display: none;
+        }
+        .navButton{
+            a{
+                background-color: transparent;
+                svg{stroke: #f0f0f0;}
+            }
+        }
     }
 }

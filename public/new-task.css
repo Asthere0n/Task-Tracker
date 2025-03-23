@@ -122,3 +122,48 @@
 #submitTaskButton:active{
     background: #444;
 }
+
+/* MEDIA QUERY */
+@media screen and (max-width:850px) {
+    #content{
+        margin: 0;
+    }
+    #new-task-form{
+        padding: 10px;
+    }
+    #formTitle{
+        font-size: 20px;
+    }
+    #taskTitleBox{
+        height: auto;
+        padding: 10px;
+    }
+    .halfBox{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+    .innerBox{
+        margin: 0;
+        padding: 0;
+        width: auto;
+        justify-content: space-between;
+    }
+    .formBox{
+        padding: 0px;
+        font-size: medium;
+    }
+    #dueTimeInput, #dueDateInput{
+        font-size: medium;
+        
+    }
+    #description{
+        padding: 10px;
+        min-height: 150px;
+    }
+    #frequencySelector{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}

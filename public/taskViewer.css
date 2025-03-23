@@ -164,3 +164,33 @@
 #delete-box{
     border: red 16px solid;
 }
+
+/* MEDIA QUERIES */
+@media screen and (max-width:850px) {
+    .card{
+        width: 90%;
+        height: 90%;
+        grid-template-columns: 100px 1fr;
+        grid-template-rows: 80px 80px 1fr 60px;
+        grid-template-areas: 
+        'CATEGORY DUE'
+        'TITLE TITLE'
+        'DESCRIPTION DESCRIPTION'
+        'ACTION ACTION';
+    }
+
+    .task-title{
+        font-size: x-large;
+    }
+
+    .task-due{
+        border: none;
+        margin-left: 20px;
+    }
+
+    .popup-box, #complete-box{
+        height: 50%;
+        width: 90%;
+        justify-content: space-around;
+    }
+}

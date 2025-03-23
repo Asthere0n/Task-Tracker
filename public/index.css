@@ -60,14 +60,14 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    span{
-        background-color: green;
-        color: white;
-        margin-right: 20px;
-        border-radius: 10px;
-        padding: 5px 10px 5px 10px;
 
-    }
+}
+.task-complete{
+    background-color: green;
+    color: white;
+    margin-inline: 20px;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 .task-category{
@@ -104,4 +104,53 @@
 
 .icon-button{
     padding: 5px;
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width:850px) {
+    .content-box{
+        padding: 10px;
+    }
+    .task-box-header{
+        display: flex;
+        flex-direction: row;
+    }
+    .sectionTitle{
+        padding: 0;
+        margin: 0;
+    }
+    .sectionDate{
+        display: none;
+    }
+    .task-template{
+        display: grid;
+        grid-template-areas: 
+        'CATEGORY COMPLETE DUE'
+        'TITLE TITLE DUE';
+        margin: 0;
+        margin-block: 5px;
+        padding: 10px;
+        grid-template-columns: 80px 1fr 80px;
+        grid-template-rows: 1fr 1fr;
+    }
+    .task-complete{
+        grid-area: COMPLETE;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .task-title{
+        grid-area: TITLE;
+        display: flex;
+    }
+    .task-category{
+        grid-area: CATEGORY;
+    }
+    .task-completed{
+        grid-area: DUE;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

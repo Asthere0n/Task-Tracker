@@ -77,3 +77,6 @@
 #today{
     background-color: palegoldenrod;
 }
+
+/* MEDIA QUERY */
+@media screen and (max-width:850px) {}
