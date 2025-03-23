@@ -36,16 +36,17 @@
 
 /* TASK TEMPLATE */
 .task-template{
+    display: grid;
     background-color: #fff;
     border: #333 2px solid;
     box-shadow: 2px 2px 2px #333;
     border-radius: 10px;
     margin: 10px;
-    display: grid;
-    padding: 20px;
-    flex-grow: 1;
-    grid-template-areas: 'CATEGORY TITLE DUE';
-    grid-template-columns: 120px 1fr 80px;
+    padding: 10px;
+    grid-template-areas: 
+    'CATEGORY TITLE COMPLETE DUE';
+    grid-template-columns: 120px 1fr 100px 80px;
+    gap: 5px;
     transition: all 0.5s;
     overflow: hidden;
     max-height: 200px;
@@ -57,21 +58,24 @@
 
 .task-title{
     grid-area: TITLE;
+    margin-left: 20px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 
 }
 .task-complete{
+    grid-area: COMPLETE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: green;
     color: white;
-    margin-inline: 20px;
     border-radius: 10px;
     padding: 5px;
 }
 
 .task-category{
-    text-align: end;
     grid-area: CATEGORY;
     display: flex;
     justify-content: center;
@@ -80,7 +84,7 @@
     border-radius: 8px;
     padding: 8px;
     width: 80px;
-    max-height: 40px;
+    max-height: 60px;
 }
 
 .task-due{
@@ -92,6 +96,15 @@
     font-size: x-large;
     border-left: 2px solid #333;
     overflow: hidden;
+}
+.task-completed{
+    grid-area: DUE;
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid #333;
+    justify-content: center;
+    padding-left: 20px;
+    font-size: large;
 }
 
 .task-description{
@@ -135,6 +148,7 @@
     }
     .task-complete{
         grid-area: COMPLETE;
+        width: 100px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -142,6 +156,7 @@
     .task-title{
         grid-area: TITLE;
         display: flex;
+        margin: 0;
     }
     .task-category{
         grid-area: CATEGORY;
@@ -152,5 +167,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        border: none;
     }
 }
